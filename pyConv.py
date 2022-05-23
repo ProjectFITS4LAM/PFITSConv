@@ -52,6 +52,7 @@ with Image.open(sys.argv[1]) as img:
     hdu.add_datasum()
     hdu.add_checksum()
     hdr.remove('EXTEND')
+    # in the following lines there is a workaround to put the UNIKEY key before EXTEND
     hdr.set('EXTAND',True, after='UNIKEY')
     if os.path.exists(sys.argv[2]):
         os.remove(sys.argv[2])
